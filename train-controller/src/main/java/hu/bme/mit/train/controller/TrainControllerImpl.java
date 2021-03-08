@@ -29,11 +29,11 @@ public class TrainControllerImpl implements TrainController {
 		enforceSpeedLimit();
 	}
 	
-	private void emergencyBraking() {
+	public void emergencyBraking() {
 		emergencyStopped = true;
 	}
 	
-	private void releaseBrake() {
+	public void releaseBrake() {
 		emergencyStopped = false;
 	}
 
@@ -52,7 +52,7 @@ public class TrainControllerImpl implements TrainController {
 	private void enforceSpeedLimit() {
 		
 		if (referenceSpeed > speedLimit) {
-			referenceSpeed3 = speedLimit;
+			referenceSpeed = speedLimit;
 		}
 	}
 	
