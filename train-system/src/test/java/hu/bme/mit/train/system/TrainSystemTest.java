@@ -14,6 +14,7 @@ public class TrainSystemTest {
 	TrainController controller;
 	TrainSensor sensor;
 	TrainUser user;
+	Tachograph tachograph;
 	
 	@Before
 	public void before() {
@@ -21,6 +22,7 @@ public class TrainSystemTest {
 		controller = system.getController();
 		sensor = system.getSensor();
 		user = system.getUser();
+		tachograph = system.getTachograph();
 
 		sensor.overrideSpeedLimit(50);
 	}
@@ -59,6 +61,14 @@ public class TrainSystemTest {
 			user.overrideJoystickPosition(15);
 			controller.followSpeed();
 			Assert.assertEquals(20, controller.getReferenceSpeed());			
+	}
+	
+	@Test
+	public void TachographCollectionNotEmpty() {
+		tachograph.addDataToTable(10, 20);
+		tachograph.addDataToTable(20, 45);
+		tachograph.addDataToTable(12, 20);
+		Assert.assertEquals(3, tachograph.tachographData.size());
 	}
 
 	
