@@ -19,6 +19,10 @@ public class TrainControllerImpl implements TrainController {
 			followSpeed();
 		}
 	};
+	
+	public TrainControllerImpl() {
+		timer.schedule(task, 0L, 1000L);
+	}
 
 	@Override
 	public void followSpeed() {
@@ -71,7 +75,6 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;	
-		timer.schedule(task, 1000L,1000L);
 	}
 
 }
