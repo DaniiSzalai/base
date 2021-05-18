@@ -14,7 +14,7 @@ public class TrainControllerImpl implements TrainController {
 	private Timer timer = new Timer(true);
 	
 	
-	private TimerTask task = new TimerTask() {
+	private TimerTask timerTask = new TimerTask() {
 		@Override
 		public void run() {
 			followSpeed();
@@ -22,7 +22,7 @@ public class TrainControllerImpl implements TrainController {
 	};
 	
 	public TrainControllerImpl() {
-		timer.schedule(task, 0L, 1000L);
+		timer.schedule(timerTask, 0L, 1000L);
 	}
 	
 
