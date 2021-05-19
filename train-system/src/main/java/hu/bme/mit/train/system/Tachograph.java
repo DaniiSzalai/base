@@ -12,8 +12,8 @@ public class Tachograph {
 		tachographData = HashBasedTable.create();
 	}
 		
-	public void addDataToTable(Integer joystick_position, Integer speed) {
-		tachographData.put(new Date(System.currentTimeMillis()), joystick_position, speed);
+	public void addDataToTable(Integer joystickPosition, Integer speed) {
+		tachographData.put(new Date(System.currentTimeMillis()), joystickPosition, speed);
 	}
 	
 }
