@@ -23,8 +23,15 @@ public class TrainSensorImpl implements TrainSensor {
 
 	@Override
 	public void overrideSpeedLimit(int speedLimit) {
-		this.speedLimit = speedLimit;
-		controller.setSpeedLimit(speedLimit);
+		
+		double referenceSpeed = (double)controller.getReferenceSpeed();
+		
+		if ((speedLimit < 0 | speedLimit > 500) | speedLimit < referenceSpeed/2) {
+			user.setAlarmState(true);
+		} else {
+			this.speedLimit = speedLimit;
+			controller.setSpeedLimit(speedLimit);
+		}		
 	}
 
 }
